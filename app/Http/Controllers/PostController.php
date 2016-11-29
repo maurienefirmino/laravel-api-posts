@@ -13,7 +13,7 @@ class PostController extends Controller
 
 	public function cadastro(Request $request){
 		if(Post::create($request->all())){
-			return response(201);
+			return response('ok',201);
 		}
 	}
 
@@ -25,10 +25,9 @@ class PostController extends Controller
 			return response()->json([
 				'messagem'   => 'Não encontrado',
 				], 404);
+		}else{
+			$post->delete();
+			return response('ok',201);
 		}
-
-		$post->delete();
-		return response(201);
-
 	}
 }

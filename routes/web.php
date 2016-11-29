@@ -11,15 +11,9 @@
 |
 */
 
-header('Access-Control-Allow-Origin: *');
-header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
-
-
-Route::group(['prefix'=>'/posts'],function(){
-
-	Route::get('/','PostController@index');
-	Route::get('/deleta/{id}','PostController@excluir');
-	Route::post('/','PostController@cadastro');
-});
+//headers
+include('headers.php');
+//rotas dos posts
+include('posts/routes.php');
 
 
